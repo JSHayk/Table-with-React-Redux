@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fd;
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+}
+
+.loader-container {
+    margin: auto;
+    width: 440px;
+    margin-top: 160px;
+    > img {
+        width: 100%;
+    }
+}
