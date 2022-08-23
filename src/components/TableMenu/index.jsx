@@ -1,14 +1,10 @@
-import { memo, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from "react-redux";
 import { searchPerson } from "../../slices/tableSlice"
 
 const TableMenu = () => {
   const [val, setVal] = useState("");
   const dispatch = useDispatch();
-  const count = useRef(0);
-  count.current++;
-  console.log(count.current, 'menu render');
-
   useEffect(() => {
     if (val.trim()) {
       dispatch(searchPerson(val.toLowerCase()));

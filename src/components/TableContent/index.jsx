@@ -1,24 +1,10 @@
-import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { deletePerson, setData } from "../../slices/tableSlice";
+import { deletePerson } from "../../slices/tableSlice";
 import { MdDelete } from "react-icons/md"
 
 const TableContent = () => {
   const {persons} = useSelector(state => state.table);
   const dispatch = useDispatch();
-
-  const count = useRef(0);
-  count.current++;
-  console.log(count.current, 'count content')
-
-//   useEffect(() => {
-//     const savedData = JSON.parse(localStorage.getItem('persons')) || [];
-//     dispatch(setData(savedData));
-//   }, [dispatch]);
-
-//   useEffect(() => {
-//     localStorage.setItem("persons", JSON.stringify(persons));
-//   }, [persons]);
 
     return (
         <div className='table-content'>
