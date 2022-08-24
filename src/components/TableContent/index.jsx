@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deletePerson } from "../../slices/tableSlice";
+import { DeletePerson } from "../../slices/tableSlice";
 import { MdDelete } from "react-icons/md";
 
 const TableContent = () => {
@@ -27,7 +27,7 @@ const TableContent = () => {
               <li>{company.name}</li>
               <li>{phone}</li>
               <li
-                onClick={() => dispatch(deletePerson(id))}
+                onClick={() => dispatch(DeletePerson(id))}
                 className="person-delete"
               >
                 <MdDelete />
