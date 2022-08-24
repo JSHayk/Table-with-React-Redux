@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchPerson, SortCancel, SortWith } from "../../slices/tableSlice";
-import { TiArrowSortedUp, TiArrowSortedDown, TiCancel } from "react-icons/ti";
+import { searchPerson, sortCancel, sortWith } from "../../slices/tableSlice";
+import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { AiOutlineMinus } from "react-icons/ai";
 
 const TableMenu = () => {
@@ -26,14 +26,14 @@ const TableMenu = () => {
         />
       </section>
       <section className="table-menu-sort-container">
-        <div onClick={() => dispatch(SortWith("up"))}>
+        <div onClick={() => dispatch(sortWith("up"))}>
           <TiArrowSortedUp />
         </div>
-        <div onClick={() => dispatch(SortWith("down"))}>
+        <div onClick={() => dispatch(sortWith("down"))}>
           <TiArrowSortedDown />
         </div>
         <div>
-          <AiOutlineMinus onClick={() => dispatch(SortCancel())} />
+          <AiOutlineMinus onClick={() => dispatch(sortCancel())} />
         </div>
       </section>
     </div>

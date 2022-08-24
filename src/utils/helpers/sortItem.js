@@ -1,4 +1,4 @@
-export const useSort = (arr, type) => {
+export const sortItem = (arr, type) => {
   if (type === "up") {
     return arr.sort((a, b) => {
       const firstName = a.name;

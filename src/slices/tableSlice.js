@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useDelete } from "../utils/hooks/useDelete";
-import { useSort } from "../utils/hooks/useSort";
+import { deleteItem } from "../utils/helpers/deleteItem";
+import { searchItem } from "../utils/helpers/searchItem";
+import { sortItem } from "../utils/helpers/sortItem";
 
 const initialState = {
   persons: [],
@@ -19,27 +20,24 @@ const tableSlice = createSlice({
       state.personsClone = payload;
       state.personsSortClone = payload;
     },
-    DeletePerson(state, { payload }) {
-      state.persons = useDelete(state.persons, payload);
-      state.personsClone = useDelete(state.personsClone, payload);
-      state.personsSortClone = useDelete(state.personsSortClone, payload);
+    deletePerson(state, { payload }) {
+      state.persons = deleteItem(state.persons, payload);
+      state.personsClone = deleteItem(state.personsClone, payload);
+      state.personsSortClone = deleteItem(state.personsSortClone, payload);
     },
     searchPerson(state, { payload }) {
-      const searchedData = state.personsClone.filter((item) =>
-        item.name.toLowerCase().includes(payload)
-      );
-      state.persons = searchedData;
-      state.personsSortClone = searchedData;
+      state.persons = searchItem(state.personsClone, payload);
+      state.personsSortClone = searchItem(state.personsClone, payload);
     },
-    SortWith(state, { payload }) {
-      state.persons = useSort(state.persons, payload);
+    sortWith(state, { payload }) {
+      state.persons = sortItem(state.persons, payload);
     },
-    SortCancel(state) {
+    sortCancel(state) {
       state.persons = state.personsSortClone;
     },
   },
 });
 
-export const { setData, DeletePerson, searchPerson, SortWith, SortCancel } =
+export const { setData, deletePerson, searchPerson, sortWith, sortCancel } =
   tableSlice.actions;
 export default tableSlice.reducer;
