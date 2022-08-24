@@ -6,10 +6,10 @@ export const useDebaunce = () => {
   const debaunce = (func, ms) => {
     clearTimeout(timer);
     const timeout = setTimeout(() => {
-        func();
+      func();
     }, ms);
     setTimer(timeout);
-  }
+  };
 
-  return debaunce
-}
+  return debaunce;
+};

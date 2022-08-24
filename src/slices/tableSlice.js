@@ -35,7 +35,6 @@ const tableSlice = createSlice({
       state.persons = useSort(state.persons, payload);
     },
     SortCancel(state) {
-      //   state.persons = useSort(state.persons, "cancel");
       state.persons = state.personsSortClone;
     },
   },
